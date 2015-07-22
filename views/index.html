@@ -1,11 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/javascript" src="js/qiehuan2.js" ></script>
+<script  language="JavaScript" type="text/javascript"   src="js/pptBox.js"></script>
+</head>
+<body>
+<div id="wai_main">
+<!--top start-->
+    <div class="top">
+    	<div class="dao_wai">
+            <div class="dao" >
+            <div class="logoSty" ><img src="images/logo.png" width="63" height="97"></div>
+               <ul class="daoList">
+                 <li onClick="javascript:qiehuan(0,6)"><a href="/" id="mynav0" class="timu_on">首页</a></li>
+                 <li onClick="javascript:qiehuan(1,6)"><a href="/about" id="mynav1" class="timu_off">关于Hi菓</a></li>
+                 <li onClick="javascript:qiehuan(2,6)"><a href="proIndex.html" id="mynav2" class="timu_off">新鲜茶饮</a></li>
+                 <li onClick="javascript:qiehuan(3,6)"><a href="#" id="mynav3" class="timu_off">Hi菓新资讯</a></li>
+                 <li onClick="javascript:qiehuan(4,6)"><a href="/cooperation" id="mynav4" class="timu_off">合作加盟</a></li>
+                 <li onClick="javascript:qiehuan(5,6)"><a href="/recruitment" id="mynav5" class="timu_off">招聘启事</a></li>
+               </ul>
+             </div>
+        </div>
+    </div>
+<!--top end-->
+<!--ppt start-->
+	<div class="ppt" >
+    	<div class="pptBox">
+			 <script>
+                 var box =new PPTBox();
+                 box.width = 1024; //宽度
+                 box.height = 446;//高度
+                 box.autoplayer = 3;//自动播放间隔时间
+             //box.add({"url":"图片地址","title":"悬浮标题","href":"链接地址"})
+                 box.add({"url":"images/tu1.png","href":"#","title":"悬浮提示标题1"})
+                 box.add({"url":"images/tu2.png","href":"#","title":"悬浮提示标题2"})
+                
+                 box.show();
+            </script>
+        </div>
+    </div>
+<!--ppt end-->
+<!--center start-->
+<div class="center">
+	<!--111111111111111111 start-->
+	<div class="c_1">
+    	<div class="c1_1">
+        	<div class="c1_1_left">
+            	<h1 class="bt1"><img src="images/bt1.png" width="163" height="88"></h1>
+                <p class="conSty" >洋溢着草本清新气息的罗勒，遇上明媚中微微带酸的柠檬,果香<br>弥散，鲜甜满溢，妙不可言的氤氲芬芳给舌尖带来清新的感觉。<br>罗勒的异域清香，带来宛如地中海的微风，温暖间感受时令<br>的停滞，醉入飘渺的空中.</p>
+        	</div>
+            <div class="c1_1_right">
+            	<img src="images/pro1.jpg" width="250" height="250"> 
+            </div>
+        </div>
+        <div class="c1_2 paddTop30">
+       		 <div class="c1_2_left">
+            	<img src="images/pro2.jpg" width="250" height="250"> 
+        	</div>
+        	<div class="c1_2_right">
+            	<h1 class="bt1"><img src="images/bt2.png" width="163" height="88"></h1>
+                <p class="conSty" >褪去晚冬的慵懒，好奇心随着春芽萌发了出来。香浓甜蜜的红豆，配以清泊淡雅的抹茶，口感柔顺细腻，初尝动人，回味倾心。恰到好处的互补，在初春里感受妙不可言。</p>
+        	</div>
+        </div>
+    </div>
+    <!--111111111111111111 end-->
+    <!--222222222222222222222 start-->
+    <div class="c_2">
+    	<div class="c2_con">
+   		  <h1 class="bt2"><img src="images/bt3.png" width="200" height="130"></h1>
+            <p class="kouhao">
+            	一家高品质的新鲜茶饮专门店，只要六平米！你相信吗？投资少回收快只要十万块（不含租金），一家高品质的新鲜茶饮专门店就是你的了！
+            </p>
+          <div class="jmImg">
+           	  <div class="jmImg_left"><img src="images/new1.png" width="230" height="230"></div>
+                <div class="jmImg_right"><img src="images/new2.png" width="230" height="230"></div>
+          </div>
+          <p class="conSty2">
+          	我们将为您提供精细的店面设计，呈现一家让人过目不忘的实体店面。同时我们确保为您提供最
+优质的原料及最佳的品质保障，将您的一切指出控制在最低范围内，让您半年即可收回投资成本！
+          </p>
+         <a href="#" class="xqSty"></a>
+        </div>
+    </div>
+    <!--222222222222222222222 end-->
+    <!--33333333333333333333 start-->
+    <div class="c_3">
+    	<div class="c3_con">
+    		<h1 class="bt3"><img src="images/bt4.png"></h1>
+           <ul class="newList">
+             <li>
+              	<div class="newLi_top"><img src="images/tu1.jpg" ></div>  
+                <p class="newLi_bot">亮马桥新增门店，优惠多多等你</p> 
+                <a href="#" class="xqSty2">详情</a>                     
+             </li>
+              <li>
+              	<div class="newLi_top"><img src="images/tu1.jpg" ></div>  
+                <p class="newLi_bot">亮马桥新增门店，优惠多多等你</p> 
+                <a href="#" class="xqSty2">详情</a>                     
+             </li>
+              <li>
+              	<div class="newLi_top"><img src="images/tu1.jpg" ></div>  
+                <p class="newLi_bot">亮马桥新增门店，优惠多多等你</p> 
+                <a href="#" class="xqSty2">详情</a>                     
+             </li>
+           </ul>
+        </div>
+    </div>
+    <!--33333333333333333333 end-->	
+</div>
+<!--center end-->
+<!--底部 start-->
+<div class="contact">
+    <h1 class="bt4"><img src="images/bt5.png" width="225" height="114"></h1>
+    <div class="weixin"><img src="images/weixin.png" ></div>
+    <div class="tel">
+        加盟电话：4006-615-900（免费客服咨询专线）<br>
+        客服邮箱：higuopost@qq.com
+    </div> 
+</div>
+<!--底部 end-->
+        
+<div class="clear"></div>   
+</div>
+
+</body>
 </html>
