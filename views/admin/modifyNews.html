@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>管理页面</title>
+    <link href="../admin/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="topBox">
+    <div class="top">
+        <div class="logo">管理系统平台</div>
+    </div>
+    <ul class="daoList">
+        <li><a href="#">个人信息</a></li>
+        <li><a href="/admin/newslist">前台管理</a></li>
+    </ul>
+</div>
+<div id="centerBox">
+    <div class="cLeft">
+        <ul class="smallClassList">
+            <li><a href="/admin/newslist">最新资讯</a></li>
+            <li><a href="/admin/varietylist">产品类型</a></li>
+            <li><a href="/admin/productlist">产品上架</a></li>
+        </ul>
+    </div>
+    <div class="cRight">
+        <div class="weizhi">当前用户->admin</div>
+        <div class="content">
+            <form id="formid" action="/admin/updatanews" method="post" enctype='multipart/form-data'>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                    <tr>
+                        <td width="30%" align="right">标题：</td>
+                        <input id="id" name="id" type="hidden"  value="<%=news.id%>">
+                        <td  width="70%" align="left"><input id="title" name="title" type="text"  class="input1" value="<%=news.title%>"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">摘要：</td>
+                        <td align="left"><textarea id="summary" name="summary" rows="3" class="textareaSty" ><%=news.summary%></textarea></td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">内容：</td>
+                        <td align="left"><textarea id="content" name="content" rows="6" cols="15" class="textareaSty" ><%=news.content%></textarea></td>
+                    </tr>
+                    <tr>
+                        <td align="right">图片：</td>
+                        <td align="left"><input id="upload" name="upload" type="file"><span id="upload_info" style="color:#AAAAAA">图片尽量适中，否则影响界面美观</span></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td align="left" style=" margin-top:10px"><input name="" type="button" value="返回" class="buttonSty2">&nbsp;&nbsp;&nbsp;<input name="" type="button" onclick="submitData()"  value="提交" class="buttonSty3"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    function submitData() {
+        var title = document.getElementById('title').value;
+        var summary = document.getElementById('summary').value;
+        var content = document.getElementById('content').value;
+        if (title == '') {
+            alert('标题不能为空');
+            return;
+        }
+        if (content == '') {
+            alert('内容不能为空');
+            return;
+        }
+        if (summary == '') {
+            alert('摘要不能为空');
+            return;
+        }
+        document.getElementById("formid").submit();
+    }
+</script>
+</html>

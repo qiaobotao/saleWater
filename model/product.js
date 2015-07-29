@@ -47,7 +47,7 @@ module.exports.fetchProduct = function (pid, cb) {
  */
 module.exports.fetchProductName = function (cb) {
 
-    var sql = 'SELECT v.id,v.name,p.id,p.name FROM proVariety v, product p WHERE v.id = p.vid';
+    var sql = 'SELECT v.id,v.name AS vname,p.id,p.name AS pname FROM proVariety v, product p WHERE v.id = p.vid';
     db.query(sql, [], function (cbData, err, rows, fields) {
         if (!err) {
             cb(null, rows);

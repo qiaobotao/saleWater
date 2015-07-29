@@ -47,7 +47,7 @@ module.exports.fetchProductVariety = function (cb) {
  * @param ordId
  * @param cb
  */
-module.exports.modifyNews = function (vId, name, remarks, ordId, cb) {
+module.exports.modifyVariety = function (vId, name, remarks, ordId, cb) {
 
     var sql = 'UPDATE proVariety SET name = ?, remarks = ?, ordId = ? WHERE id = ?';
 
@@ -61,11 +61,11 @@ module.exports.modifyNews = function (vId, name, remarks, ordId, cb) {
 }
 
 /**
- * 删除产品
+ * 删除种类
  * @param vId
  * @param cb
  */
-module.exports.delNews = function (vId, cb) {
+module.exports.delVariety = function (vId, cb) {
 
     var sql = 'DELETE FROM proVariety WHERE id = ?';
     db.query(sql, [vId], function(cbData, err, rows, fields) {

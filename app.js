@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
+var multer = require('multer');
 var myRoute = require('./route');
 
 
@@ -18,11 +19,21 @@ app.set('view engine', 'html'); // 能够解析html
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(multer({dest: path.join(__dirname, 'public/upload')})); // 指定文件上传路径
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+    secret: '12345',
+    name: 'testapp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+    cookie: {maxAge: 80000 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+    resave: false,
+    saveUninitialized: true
+     }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 // 统一放到路由文件中
 myRoute.route(app);
 

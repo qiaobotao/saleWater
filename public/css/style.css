@@ -192,3 +192,32 @@ a.xqSty2:link,a.xqSty2:visited{ margin:0px; padding:0px; width:50px; height:20px
 .re_1 img{width:1024px; height:263px; display:block;}
 .re_2{margin:0px auto; padding:0px; width:1024px; }
 .re_2 img{width:1024px; height:400px; display:block;}
+
+.width1024{ margin:0px auto; padding:0px; width:1024px;}
+.zxList{ margin:0px; padding:0px; list-style-type:none;clear:both;margin-bottom:15px;}
+.zxList li{ width:325px; height:500px; background:#FFF;
+    border:1px solid #e8e7e8;
+    -moz-border-radius:15px;
+    border-radius:15px;
+    float:left;
+    -webkit-box-shadow:0px 3px 6px #ccc;
+    -moz-box-shadow:0px 3px 6px #ccc;
+    box-shadow:0px 3px 6px #ccc; margin:0px 7px;margin-top:15px; }
+.imgSty2 img{ margin:0px; padding:0px; width:325px; height:430px;  -moz-border-radius:15px 15px 0px 0px;  border-radius:15px 15px 0px 0px; }
+.nrSty{ margin:0px auto; padding:5px 10px; height:25px; line-height:25px; border-top:1px solid #898989;}
+.nrSty a{ width:240px; display:block; font-size:15px; text-align:left; float:left; font-weight:bold; word-break:keep-all;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis; font-family:"微软雅黑";}
+.nrSty span{ float:right; font-size:14px;}
+.tm{ margin:0px auto; padding:0px; width:650px; padding:40px 0px; line-height:30px; font-size:30px; text-align:left; font-family:"微软雅黑";}
+.tm div{ width:600px; float:left;}
+.tm span{ float:right; font-size:14px; font-weight:normal;}
+.imgSty3 img{ width:650px;}
+.conSty3{ margin:0px auto; padding:0px; width:650px;}
+.conSty3 h2{ text-align:left; font-family:"微软雅黑"; padding:20px 0px;}
+.conSty3 p{ text-align:left; font-size:15px; font-family:"微软雅黑"; line-height:25px;}
+.line{ border-bottom:1px solid #898989; margin-top:50px;}
+
+
+.selectSty1{ height:25px; line-height:25px; border:1px solid #e1e1e1; width:150px;}

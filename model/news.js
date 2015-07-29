@@ -33,8 +33,8 @@ module.exports.insertNews = function(title, summary, content, image, cb) {
 module.exports.fetchNews = function (pages, count, cb) {
 
     var start = pages * count;
-    var end = start + pages;
-    var sql = 'SELECT * FROM news LIMIT ?, ?';
+    var end = start + count;
+    var sql = 'SELECT * FROM news ORDER BY dateline DESC LIMIT ?, ?';
     db.query(sql, [start, end], function (cbData, err, rows, fields) {
         if (!err) {
             cb(null, rows);
@@ -53,7 +53,7 @@ module.exports.fetchNews = function (pages, count, cb) {
  * @param image
  * @param cb
  */
-module.exports.modifyNews = function (newsId, title, summary, content, image, cb) {
+module.exports.updataNews = function (newsId, title, summary, content, image, cb) {
 
     var sql = 'UPDATE news SET title = ?, summary = ?, content = ?, image = ? WHERE id = ?';
 
@@ -75,6 +75,25 @@ module.exports.delNews = function (newsId, cb) {
 
     var sql = 'DELETE FROM news WHERE id = ?';
     db.query(sql, [newsId], function(cbData, err, rows, fields) {
+        if (!err) {
+            cb(null, rows);
+        } else {
+            cb(err);
+        }
+    });
+}
+
+/**
+ * 获取新闻详情
+ * @param nid
+ * @param cb
+ */
+
+module.exports.fetchSingleNews =function (nid, cb) {
+
+    var sql = 'SELECT * FROM news WHERE id = ?';
+    db.query(sql, [nid],  function(cbData, err, rows, fields) {
+
         if (!err) {
             cb(null, rows);
         } else {

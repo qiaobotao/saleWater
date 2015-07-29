@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>管理页面</title>
+    <link href="../admin/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="topBox">
+    <div class="top">
+        <div class="logo">管理系统平台</div>
+    </div>
+    <ul class="daoList">
+        <li><a href="#">个人信息</a></li>
+        <li><a href="/admin/newslist">前台管理</a></li>
+    </ul>
+</div>
+<div id="centerBox">
+    <div class="cLeft">
+        <ul class="smallClassList">
+            <li><a href="/admin/newslist">最新资讯</a></li>
+            <li><a href="/admin/varietylist">产品类型</a></li>
+            <li><a href="/admin/productlist">产品上架</a></li>
+        </ul>
+    </div>
+    <div class="cRight">
+        <div class="weizhi">当前用户->admin</div>
+        <div class="content">
+            <form id="formid" action="/admin/addproduct" method="post" enctype='multipart/form-data'>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+
+                    <tr>
+                        <td align="right" valign="top">类型：</td>
+                        <td width="70%" align="left">
+                            <select id="variety" name="variety"  class="selectSty1">
+                                <% for(var i=0; i<variety.length; i++) {%>
+                                <option value="<%=variety[i].id%>"><%=variety[i].name%></option>
+                                <%}%>
+                            </select>
+                        </td>
+
+                    </tr>
+                        <td align="right" valign="top">产品名称：</td>
+                        <td align="left"><input id="name" name="name" type="text"  class="input1"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" valign="top">产品介绍：</td>
+                        <td align="left"><textarea id="detail" name="detail" rows="6" cols="15" class="textareaSty"  ></textarea></td>
+                    </tr>
+                    <tr>
+                        <td align="right">图片：</td>
+                        <td align="left"><input id="upload" name="upload" type="file"><span id="upload_info" style="color:#AAAAAA">图片尽量适中，否则影响界面美观</span></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td align="left" style=" margin-top:10px"><input name="" type="button" value="返回" class="buttonSty2">&nbsp;&nbsp;&nbsp;<input name="" type="button" onclick="submitData()"  value="提交" class="buttonSty3"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    function submitData() {
+        var variety = document.getElementById('variety').value;
+        var name = document.getElementById('name').value;
+        var detail = document.getElementById('detail').value;
+        if (variety == '') {
+            alert('产品类型不能为空');
+            return;
+        }
+        if (name == '') {
+            alert('产品名称不能为空');
+            return;
+        }
+        if (detail == '') {
+            alert('产品详情不能为空');
+            return;
+        }
+        document.getElementById("formid").submit();
+    }
+</script>
+</html>

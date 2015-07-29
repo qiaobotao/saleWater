@@ -73,3 +73,21 @@ exports.deepClone = function (obj) {
 
     return null;
 };
+
+/**
+ *
+ * @param view
+ * @returns {string}
+ */
+exports.getView = function(view) {
+    return 'admin/' + view;
+};
+
+/**
+ * 获取图片url
+ * @param baseUrl
+ * @param fileName
+ */
+exports.getPath = function(baseUrl,fileName) {
+    return baseUrl + '/upload/' + fileName;
+}
