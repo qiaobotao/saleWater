@@ -55,9 +55,14 @@ module.exports.fetchNews = function (pages, count, cb) {
  */
 module.exports.updataNews = function (newsId, title, summary, content, image, cb) {
 
-    var sql = 'UPDATE news SET title = ?, summary = ?, content = ?, image = ? WHERE id = ?';
+    var sql = 'UPDATE news SET title = ?, summary = ?, content = ? WHERE id = ?';
+    var par = [title, summary, content, newsId];
+    if (image != '') {
+        sql = 'UPDATE news SET title = ?, summary = ?, content = ?, image = ? WHERE id = ?';
+        par = [title, summary, content, image, newsId];
+    }
 
-    db.query(sql, [title, summary, content, image, newsId], function (cbData, err, rows, fields) {
+    db.query(sql, par, function (cbData, err, rows, fields) {
          if (!err) {
              cb(null, rows);
          } else {

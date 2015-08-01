@@ -40,7 +40,10 @@ module.exports.newsadd = function(req, res) {
     var  title = req.body.title ? req.body.title : '';
     var summary = req.body.summary ? req.body.summary : '';
     var content = req.body.content ? req.body.content : '';
-    var fileName = req.files.upload.name ? req.files.upload.name : '';
+    var fileName = '';
+    if (req.files.upload) {
+        fileName = req.files.upload.name;
+    }
     news.insertNews(title,summary,content,fileName,function(err, results){
         if (!err) {
             res.redirect('/admin/newslist');
@@ -69,7 +72,22 @@ module.exports.modifynews = function(req, res) {
 module.exports.updatanews = function(req, res) {
 
     var id = req.body.id ? req.body.id : 0;
+    var title = req.body.title ? req.body.title : '';
+    var summary = req.body.summary ? req.body.summary : '';
+    var content = req.body.content ? req.body.content : '';
+    var fileName = '';
+    if (req.files.upload) {
+        fileName = req.files.upload.name;
+    }
+    news.updataNews(id,title,summary,content,fileName,function(err, results){
 
+        if (!err) {
+            res.redirect('/admin/newslist');
+        } else {
+            console.log(err.message);
+            res.render('error');
+        }
 
-}
+    });
+};
 

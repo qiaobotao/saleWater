@@ -66,11 +66,17 @@ module.exports.fetchProductName = function (cb) {
  * @param image
  * @param cb
  */
-module.exports.modifyProduct = function (pid, vid, name, detail, image, cb) {
+module.exports.updateProduct = function (pid, vid, name, detail, image, cb) {
 
     var sql = 'UPDATE product SET vid = ?, name = ?, detail = ?, image = ? WHERE id = ?';
+    var par = [vid, name, detail, image, pid];
 
-    db.query(sql, [vid, name, detail, image, pid], function (cbData, err, rows, fields) {
+    if (image == '') {
+        sql = 'UPDATE product SET vid = ?, name = ?, detail = ? WHERE id = ?';
+        par = [vid, name, detail, pid];
+    }
+
+    db.query(sql, par, function (cbData, err, rows, fields) {
         if (!err) {
             cb(null, rows);
         } else {

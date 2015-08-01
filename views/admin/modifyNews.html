@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
-                        <td align="left" style=" margin-top:10px"><input name="" type="button" value="返回" class="buttonSty2">&nbsp;&nbsp;&nbsp;<input name="" type="button" onclick="submitData()"  value="提交" class="buttonSty3"></td>
+                        <td align="left" style=" margin-top:10px"><input name="" type="button" value="返回" onclick="back()" class="buttonSty2">&nbsp;&nbsp;&nbsp;<input name="" type="button" onclick="submitData()"  value="提交" class="buttonSty3"></td>
                     </tr>
                 </table>
             </form>
@@ -73,6 +73,10 @@
             return;
         }
         document.getElementById("formid").submit();
+    }
+
+    function back() {
+        history.back();
     }
 </script>
 </html>

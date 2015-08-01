@@ -46,7 +46,7 @@
                         <td width="93"><%=product[i].id%></td>
                         <td width="98"><%=product[i].vname%></td>
                         <td width="97"><%=product[i].pname%></td>
-                        <td width="98"><a href="#" class="xiugai">修改</a>&nbsp;&nbsp;<a href="/admin/productdel?id=<%=product[i].id%>"  class="delete">删除</a></td>
+                        <td width="98"><a href="/admin/modifyproduct?id=<%=product[i].id%>" class="xiugai">修改</a>&nbsp;&nbsp;<a href="/admin/productdel?id=<%=product[i].id%>"  class="delete">删除</a></td>
                     </tr>
                     <%}%>
                 </table>

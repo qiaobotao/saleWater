@@ -37,7 +37,10 @@ module.exports.addproduct = function(req, res) {
     var vid = req.body.variety ? req.body.variety : 0;
     var name = req.body.name ? req.body.name : '';
     var detail = req.body.detail ? req.body.detail : '';
-    var fileName = req.files.upload.name ? req.files.upload.name : '';
+    var fileName = '';
+    if (req.files.upload) {
+        fileName = req.files.upload.name;
+    }
     product.insertProduct(vid,name,detail,fileName,function(err, results){
         if(!err) {
             res.redirect('/admin/productlist');
@@ -60,3 +63,46 @@ module.exports.productdel = function(req, res) {
         }
     });
 };
+
+module.exports.modifyproduct = function(req, res) {
+
+    var pid = req.query.id ? req.query.id : 0;
+    product.fetchProduct(pid, function(err, results) {
+        var product = {};
+        if (!err) {
+            product = results[0];
+        } else {
+            console.log(err.message);
+            res.render('error');
+        }
+        variety.fetchProductVariety(function(err, results) {
+            if (!err) {
+                res.render(myUtil.getView('modifyProduct'), {variety : results, product : product});
+            } else {
+                console.log(err.message);
+                res.render('error');
+            }
+        });
+    });
+}
+
+module.exports.updateproduct = function(req, res) {
+
+    var id = req.body.id ? req.body.id : 0;
+    var variety = req.body.variety ? req.body.variety : 0;
+    var name = req.body.name ? req.body.name : '';
+    var detail = req.body.detail ? req.body.detail :'';
+    var fileName = '';
+    if (req.files.upload) {
+        fileName = req.files.upload.name;
+    }
+
+    product.updateProduct(id,variety,name,detail,fileName,function(err,results){
+        if (!err) {
+            res.redirect('/admin/productlist');
+        } else {
+            console.log(err.message);
+            res.render('error');
+        }
+    });
+}

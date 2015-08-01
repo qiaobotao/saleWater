@@ -35,6 +35,10 @@ router.all('/addproduct',product.addproduct);
 router.all('/productdel', product.productdel);
 router.all('/modifynews', news.modifynews);
 router.all('/updatanews', news.updatanews);
+router.all('/modifyvariety', variety.modifyVariety);
+router.all('/updatevariety', variety.updatevariety);
+router.all('/modifyproduct', product.modifyproduct);
+router.all('/updateproduct', product.updateproduct);
 
 
 module.exports = router;

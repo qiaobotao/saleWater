@@ -43,15 +43,13 @@ module.exports.fetchProductVariety = function (cb) {
  * 修改产品种类
  * @param vId
  * @param name
- * @param remarks
- * @param ordId
  * @param cb
  */
-module.exports.modifyVariety = function (vId, name, remarks, ordId, cb) {
+module.exports.updateVariety = function (vId, name, cb) {
 
-    var sql = 'UPDATE proVariety SET name = ?, remarks = ?, ordId = ? WHERE id = ?';
+    var sql = 'UPDATE proVariety SET name = ?  WHERE id = ?';
 
-    db.query(sql, [name, remarks, ordId, vId], function (cbData, err, rows, fields) {
+    db.query(sql, [name, vId], function (cbData, err, rows, fields) {
         if (!err) {
             cb(null, rows);
         } else {
@@ -69,6 +67,25 @@ module.exports.delVariety = function (vId, cb) {
 
     var sql = 'DELETE FROM proVariety WHERE id = ?';
     db.query(sql, [vId], function(cbData, err, rows, fields) {
+        if (!err) {
+            cb(null, rows);
+        } else {
+            cb(err);
+        }
+    });
+}
+
+/**
+ * 根据id获取种类详情
+ * @param vId
+ * @param cb
+ */
+module.exports.fetchSingleVariety = function (vId, cb) {
+
+    var sql = 'SELECT * FROM proVariety WHERE id = ?';
+
+    db.query(sql, [vId], function(cbData, err, rows, fields) {
+
         if (!err) {
             cb(null, rows);
         } else {
