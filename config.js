@@ -12,7 +12,7 @@ module.exports = {
 
     // 数据库连接池配置
     dbConfig: {
-        host     : '123.57.24.162',
+        host     : '*.*.*.*',
         database : 'higuo',
         user     : 'root',
         password : 'q1w2e3',
