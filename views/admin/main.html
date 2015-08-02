@@ -32,10 +32,10 @@
             <div class="tab_Header">
                 <table >
                     <tr>
-                        <td width="95">编号</td>
                         <td width="97">标题</td>
                         <td width="251">摘要</td>
-                        <td width="145">操作</td>
+                        <td width="145">时间</td>
+                        <td width="100">操作</td>
                     </tr>
                 </table>
             </div>
@@ -43,10 +43,10 @@
                 <table>
                     <% for (var i=0;i<news.length;i++) {%>
                     <tr class="bg1">
-                        <td width="93"><%=news[i].id%></td>
                         <td width="98"><%=news[i].title%></td>
                         <td width="251"><%=news[i].summary%></td>
-                        <td width="145"><a href="/admin/modifynews?id=<%=news[i].id%>" class="xiugai">修改</a>&nbsp;&nbsp;<a href="/admin/newsdel?id=<%=news[i].id%>"  class="delete">删除</a></td>
+                        <td width="145"><%=news[i].dateline%></td>
+                        <td width="100"><a href="/admin/modifynews?id=<%=news[i].id%>" class="xiugai">修改</a>&nbsp;&nbsp;<a href="/admin/newsdel?id=<%=news[i].id%>"  class="delete">删除</a></td>
                     </tr>
                    <%}%>
                 </table>

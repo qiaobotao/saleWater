@@ -106,3 +106,4 @@ module.exports.updateproduct = function(req, res) {
         }
     });
 }
+

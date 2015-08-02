@@ -16,9 +16,9 @@
             <div class="logoSty" ><img src="images/logo.png" width="63" height="97"></div>
                <ul class="daoList">
                    <li onClick="javascript:qiehuan(0,6)"><a href="/" id="mynav0" class="timu_off">首页</a></li>
-                   <li onClick="javascript:qiehuan(1,6)"><a href="/about" id="mynav1" class="timu_on">关于Hi菓</a></li>
+                   <li onClick="javascript:qiehuan(1,6)"><a href="/about" id="mynav1" class="timu_off">关于Hi菓</a></li>
                    <li onClick="javascript:qiehuan(2,6)"><a href="/proIndex" id="mynav2" class="timu_off">新鲜茶饮</a></li>
-                   <li onClick="javascript:qiehuan(3,6)"><a href="/news" id="mynav3" class="timu_off">Hi菓新资讯</a></li>
+                   <li onClick="javascript:qiehuan(3,6)"><a href="/news" id="mynav3" class="timu_on">Hi菓新资讯</a></li>
                    <li onClick="javascript:qiehuan(4,6)"><a href="/cooperation" id="mynav4" class="timu_off">合作加盟</a></li>
                    <li onClick="javascript:qiehuan(5,6)"><a href="/recruitment" id="mynav5" class="timu_off">招聘启事</a></li>
                </ul>
@@ -45,23 +45,17 @@
 <!--ppt end-->
 <!--center start-->
 <div class="center width1024">
-<h1 class="tm"><%=newsDetail.title%><span><%=newsDetail.dateline%></span></h1>
-<div class="imgSty3"><img src="<%=newsDetail.image%>"></div>
-<div class="conSty3">
- <h2><%=newsDetail.title%></h2>
-<p><%=newsDetail.content%></p>
-</div>
-<div class="line"></div>
 <ul class="zxList">
     <%for(var i=0;i<news.length;i++){%>
-    <li>
-        <div class="imgSty2"><img src="<%=news[i].image%>" ></div>
+	<li>
+    	<div class="imgSty2"><img src="<%=news[i].image%>" ></div>
         <div  class="nrSty">
-            <a href="/newsshow?id=<%=news[i].id%>"><%=news[i].title%></a><span><%=news[i].dateline%></span>
+        	<a href="/newsshow?id=<%=news[i].id%>"><%=news[i].title%></a><span><%=news[i].dateline%></span>
         </div>
     </li>
     <%}%>
 </ul>
+   
 </div>
 <!--center end-->
 <div class="clear"></div>

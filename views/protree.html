@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>新鲜茶饮</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" type="text/javascript" src="js/qiehuan.js"></script>
+<script src="js/prototype.lite.js" type="text/javascript"></script>
+<script src="js/moo.fx.js" type="text/javascript"></script>
+<script src="js/moo.fx.pack.js" type="text/javascript"></script>
+<style type="text/css"> 
+html,body{height:100%;padding:0;margin:0;}
+</style>
+
+<style>
+.content{
+	width: 202px;
+	height: 26px;
+	
+}
+.subClass {
+    width: 202px;
+	margin: 0px;
+	padding: 0px;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	
+}
+.subClass ul {
+    list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+}
+.subClass li {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 40px;
+	color: #fff;
+	list-style-type: none;
+	display: block;
+	text-decoration: none;
+	height: 40px;
+	
+	padding-left: 0px;
+}
+
+.subClass a:link,.subClass a:visited,.subClass a:active{
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: #fff;
+	height: 40px;
+	line-height: 40px;
+	padding-left:15px;
+	width:160px;
+	display: block;
+    overflow: hidden; margin-left:10px;
+	text-decoration: none; text-align:left; background:url(images/icon2.png) no-repeat left center; text-align:left; font-family:"微软雅黑";
+
+}
+.subClass a:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	line-height: 40px;
+	color: #f3ca20;
+	background:url(images/icon2.png) no-repeat left center; 
+	text-align:left;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: 40px;
+	padding-left:15px; margin-left:10px;
+	width:160px;
+	text-decoration: none;font-family:"微软雅黑";
+}
+</style>
+</head>
+<body>
+<table width="205" border="0" cellspacing="0" cellpadding="0" style="float:left;" >
+  <tr>
+    <td valign="top">
+        <%for(var i=0;i<variety.length;i++) {%>
+        <div class="menucon">
+            <h1 class="bigClass">
+                <%=variety[i].name%>
+            </h1>
+            <div class="content" >
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td><img src="images/menu_topline.gif" width="171" height="2" /></td>
+                    </tr>
+                </table>
+                <ul class="subClass">
+                    <%for(var j=0;j<product.length;j++){%>
+                    <%if(product[j].vid == variety[i].id){%>
+                    <li><a href="/prodetail?id=<%=product[j].id%>" target="mainFrame"><%=product[j].name%></a></li>
+                    <%}%>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <%}%>
+
+ <script type="text/javascript">
+		var contents = document.getElementsByClassName('content');
+		var toggles = document.getElementsByClassName('bigClass');
+	    var myAccordion = new fx.Accordion(
+			toggles, contents, {opacity: true, duration: 400}
+   	);
+		myAccordion.showThisHideOpen(contents[0]);
+	</script>  
+    
+
+    
+
+    </td>
+  </tr>
+</table>
+
+
+</body>
+</html>

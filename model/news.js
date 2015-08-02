@@ -45,6 +45,40 @@ module.exports.fetchNews = function (pages, count, cb) {
 }
 
 /**
+ * 新闻详情页面下的三条信息，根据获取排序小于该id的
+ * 三条新闻
+ * @param id
+ * @param cb
+ */
+module.exports.fetchThreeNews = function (id, cb) {
+
+    var sql = 'SELECT * FROM news WHERE id < ? ORDER BY id desc LIMIT 3';
+    db.query(sql, [id], function (cbData, err, rows, fields) {
+        if (!err) {
+            cb(null, rows);
+        } else {
+            cb(err);
+        }
+    });
+}
+
+/**
+ * 获取所有新闻
+ * @param cb
+ */
+module.exports.fetchAllNews = function(cb) {
+
+    var sql = 'SELECT * FROM news ORDER BY dateline DESC ';
+    db.query(sql, [], function (cbData, err, rows, fields) {
+        if (!err) {
+            cb(null, rows);
+        } else {
+            cb(err);
+        }
+    });
+}
+
+/**
  * 修改新闻
  * @param newsId
  * @param title

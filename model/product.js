@@ -32,6 +32,9 @@ module.exports.insertProduct = function(vid, name, detail, image, cb) {
 module.exports.fetchProduct = function (pid, cb) {
 
     var sql = 'SELECT * FROM product WHERE id = ?';
+    if (pid == 0) {
+        sql = 'SELECT * FROM product ORDER BY id desc LIMIT 1 ';
+    }
     db.query(sql, [pid], function (cbData, err, rows, fields) {
         if (!err) {
             cb(null, rows);
@@ -50,6 +53,17 @@ module.exports.fetchProductName = function (cb) {
     var sql = 'SELECT v.id,v.name AS vname,p.id,p.name AS pname FROM proVariety v, product p WHERE v.id = p.vid';
     db.query(sql, [], function (cbData, err, rows, fields) {
         if (!err) {
+            cb(null, rows);
+        } else {
+            cb(err);
+        }
+    });
+}
+
+module.exports.fetchAllProduct = function (cb) {
+    var sql = 'SELECT * FROM product';
+    db.query(sql, [], function(cbData, err, rows, fields){
+        if(!err) {
             cb(null, rows);
         } else {
             cb(err);

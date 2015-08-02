@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var view = require('./view');
+
 /* GET home page. */
 router.all('/', function(req, res, next) {
   res.render('index');
@@ -17,5 +19,17 @@ router.all('/cooperation', function(req, res, next) {
 router.all('/recruitment', function(req, res, next) {
     res.render('recruitment');
 });
+
+router.all('/proIndex', function(req, res, next){
+    res.render('proIndex')
+});
+
+router.all('/news', view.news);
+
+router.all('/newsshow', view.newsshow);
+
+router.all('/protree', view.protree);
+
+router.all('/prodetail', view.prodetail);
 
 module.exports = router;

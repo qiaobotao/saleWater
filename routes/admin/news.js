@@ -5,6 +5,7 @@
 
 var myUtil = require('../../common/utils');
 var news = require('../../model/news');
+var moment = require('moment');
 
 module.exports.newslist = function(req, res) {
 
@@ -13,6 +14,10 @@ module.exports.newslist = function(req, res) {
 
     news.fetchNews(page, count, function(err, results){
         if (!err) {
+            moment.locale('zh-cn');
+            for (var i=0;i<results.length;i++) {
+                results[i].dateline = moment(results[i].dateline).endOf('hour').fromNow();
+            }
             res.render(myUtil.getView('main'), {news : results});
         } else {
             console.log(err.message);
