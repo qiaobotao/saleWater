@@ -4,9 +4,6 @@ var router = express.Router();
 var view = require('./view');
 
 /* GET home page. */
-router.all('/', function(req, res, next) {
-  res.render('index');
-});
 
 router.all('/about', function(req, res, next) {
     res.render('about');
@@ -23,6 +20,8 @@ router.all('/recruitment', function(req, res, next) {
 router.all('/proIndex', function(req, res, next){
     res.render('proIndex')
 });
+
+router.all('/', view.indexnews);
 
 router.all('/news', view.news);
 

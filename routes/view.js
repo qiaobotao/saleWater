@@ -96,3 +96,19 @@ module.exports.prodetail = function(req, res) {
         }
     });
 }
+
+module.exports.indexnews = function(req, res) {
+
+    var baseUrl = 'http://' + req.headers.host;
+    news.fetchThreeNews(100000,function(err, results) {
+        if (!err) {
+            for(var i=0;i<results.length;i++) {
+                results[i].image = myUtil.getPath(baseUrl,results[i].image);
+            }
+            res.render('index', {news : results});
+        } else {
+            consoel.log(err.message);
+            res.render('error');
+        }
+    });
+}
